@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Review API - Results</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Courier New', monospace; background: #1e1e2e; color: #cdd6f4; padding: 20px; }
+  .task { margin-bottom: 40px; border: 1px solid #45475a; border-radius: 8px; overflow: hidden; background: #181825; }
+  .task-header { background: #313244; padding: 12px 20px; font-size: 16px; font-weight: bold; color: #89b4fa; border-bottom: 1px solid #45475a; }
+  .task-url { padding: 10px 20px; background: #11111b; color: #a6e3a1; font-size: 14px; }
+  .task-url .method { font-weight: bold; color: #f9e2af; display: inline-block; width: 60px; }
+  .task-body { padding: 15px 20px; }
+  .task-body pre { background: #11111b; padding: 15px; border-radius: 4px; overflow-x: auto; font-size: 13px; line-height: 1.5; color: #cdd6f4; white-space: pre-wrap; word-wrap: break-word; }
+  .key { color: #89b4fa; }
+  .string { color: #a6e3a1; }
+</style>
+</head>
+<body>
+
+<!-- Task 1: Get all books -->
+<div class="task" id="task1">
+  <div class="task-header">Task 1: Get the book list available in the shop</div>
+  <div class="task-url"><span class="method">GET</span> http://localhost:5000/</div>
+  <div class="task-body"><pre>{
+  "<span class="key">1</span>": { "<span class="key">author</span>": "<span class="string">Chinua Achebe</span>", "<span class="key">title</span>": "<span class="string">Things Fall Apart</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">2</span>": { "<span class="key">author</span>": "<span class="string">Hans Christian Andersen</span>", "<span class="key">title</span>": "<span class="string">Fairy tales</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">3</span>": { "<span class="key">author</span>": "<span class="string">Dante Alighieri</span>", "<span class="key">title</span>": "<span class="string">The Divine Comedy</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">4</span>": { "<span class="key">author</span>": "<span class="string">Unknown</span>", "<span class="key">title</span>": "<span class="string">The Epic Of Gilgamesh</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">5</span>": { "<span class="key">author</span>": "<span class="string">Unknown</span>", "<span class="key">title</span>": "<span class="string">The Book Of Job</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">6</span>": { "<span class="key">author</span>": "<span class="string">Unknown</span>", "<span class="key">title</span>": "<span class="string">One Thousand and One Nights</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">7</span>": { "<span class="key">author</span>": "<span class="string">Unknown</span>", "<span class="key">title</span>": "<span class="string">Njál's Saga</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">8</span>": { "<span class="key">author</span>": "<span class="string">Jane Austen</span>", "<span class="key">title</span>": "<span class="string">Pride and Prejudice</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">9</span>": { "<span class="key">author</span>": "<span class="string">Honoré de Balzac</span>", "<span class="key">title</span>": "<span class="string">Le Père Goriot</span>", "<span class="key">reviews</span>": {} },
+  "<span class="key">10</span>": { "<span class="key">author</span>": "<span class="string">Samuel Beckett</span>", "<span class="key">title</span>": "<span class="string">Molloy, Malone Dies, The Unnamable, the trilogy</span>", "<span class="key">reviews</span>": {} }
+}</pre></div>
+</div>
+
+<!-- Task 2: Get book by ISBN -->
+<div class="task" id="task2">
+  <div class="task-header">Task 2: Get books based on ISBN</div>
+  <div class="task-url"><span class="method">GET</span> http://localhost:5000/isbn/1</div>
+  <div class="task-body"><pre>{
+  "<span class="key">author</span>": "<span class="string">Chinua Achebe</span>",
+  "<span class="key">title</span>": "<span class="string">Things Fall Apart</span>",
+  "<span class="key">reviews</span>": {}
+}</pre></div>
+</div>
+
+<!-- Task 3: Get books by author -->
+<div class="task" id="task3">
+  <div class="task-header">Task 3: Get all books by Author</div>
+  <div class="task-url"><span class="method">GET</span> http://localhost:5000/author/Jane Austen</div>
+  <div class="task-body"><pre>[
+  {
+    "<span class="key">isbn</span>": "<span class="string">8</span>",
+    "<span class="key">author</span>": "<span class="string">Jane Austen</span>",
+    "<span class="key">title</span>": "<span class="string">Pride and Prejudice</span>",
+    "<span class="key">reviews</span>": {}
+  }
+]</pre></div>
+</div>
+
+<!-- Task 4: Get books by title -->
+<div class="task" id="task4">
+  <div class="task-header">Task 4: Get all books based on Title</div>
+  <div class="task-url"><span class="method">GET</span> http://localhost:5000/title/Things Fall Apart</div>
+  <div class="task-body"><pre>[
+  {
+    "<span class="key">isbn</span>": "<span class="string">1</span>",
+    "<span class="key">author</span>": "<span class="string">Chinua Achebe</span>",
+    "<span class="key">title</span>": "<span class="string">Things Fall Apart</span>",
+    "<span class="key">reviews</span>": {}
+  }
+]</pre></div>
+</div>
+
+<!-- Task 5: Get book review -->
+<div class="task" id="task5">
+  <div class="task-header">Task 5: Get book Review</div>
+  <div class="task-url"><span class="method">GET</span> http://localhost:5000/review/1</div>
+  <div class="task-body"><pre>{}</pre></div>
+</div>
+
+<!-- Task 6: Register -->
+<div class="task" id="task6">
+  <div class="task-header">Task 6: Register New User</div>
+  <div class="task-url"><span class="method">POST</span> http://localhost:5000/register</div>
+  <div class="task-url">Body: { "username": "john_doe", "password": "secure123" }</div>
+  <div class="task-body"><pre>{
+  "<span class="key">message</span>": "<span class="string">User registered successfully</span>"
+}</pre></div>
+</div>
+
+<!-- Task 7: Login -->
+<div class="task" id="task7">
+  <div class="task-header">Task 7: Login as Registered User</div>
+  <div class="task-url"><span class="method">POST</span> http://localhost:5000/customer/login</div>
+  <div class="task-url">Body: { "username": "john_doe", "password": "secure123" }</div>
+  <div class="task-body"><pre>{
+  "<span class="key">message</span>": "<span class="string">Login successful</span>",
+  "<span class="key">token</span>": "<span class="string">eyJhbGciOiJIUzI1NiIs...</span>"
+}</pre></div>
+</div>
+
+<!-- Task 8: Add/Modify review -->
+<div class="task" id="task8">
+  <div class="task-header">Task 8: Add/Modify a Book Review</div>
+  <div class="task-url"><span class="method">PUT</span> http://localhost:5000/customer/auth/review/1</div>
+  <div class="task-url">Auth: Bearer &lt;JWT_TOKEN&gt;</div>
+  <div class="task-url">Body: { "review": "An amazing masterpiece! A must-read." }</div>
+  <div class="task-body"><pre>{
+  "<span class="key">message</span>": "<span class="string">Review added/updated successfully</span>",
+  "<span class="key">reviews</span>": {
+    "<span class="key">john_doe</span>": "<span class="string">An amazing masterpiece! A must-read.</span>"
+  }
+}</pre></div>
+</div>
+
+<!-- Task 9: Delete review -->
+<div class="task" id="task9">
+  <div class="task-header">Task 9: Delete Book Review</div>
+  <div class="task-url"><span class="method">DELETE</span> http://localhost:5000/customer/auth/review/1</div>
+  <div class="task-url">Auth: Bearer &lt;JWT_TOKEN&gt;</div>
+  <div class="task-body"><pre>{
+  "<span class="key">message</span>": "<span class="string">Review deleted successfully</span>",
+  "<span class="key">reviews</span>": {}
+}</pre></div>
+</div>
+
+</body>
+</html>
