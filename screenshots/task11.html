@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 11 - Search by ISBN using Promises</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Courier New', monospace; background: #1e1e2e; color: #cdd6f4; padding: 20px; }
+  h2 { color: #f9e2af; text-align: center; margin-bottom: 20px; font-size: 18px; }
+  .section { margin-bottom: 25px; border: 1px solid #45475a; border-radius: 8px; overflow: hidden; background: #181825; }
+  .section-header { background: #313244; padding: 12px 20px; font-size: 15px; font-weight: bold; color: #89b4fa; }
+  .code { padding: 15px 20px; background: #11111b; }
+  .code pre { font-size: 13px; line-height: 1.5; color: #a6e3a1; }
+  .response { padding: 15px 20px; background: #11111b; border-top: 1px solid #45475a; }
+  .response pre { font-size: 13px; line-height: 1.5; color: #f5c2e7; }
+  .key { color: #89b4fa; }
+  .string { color: #a6e3a1; }
+  .url { padding: 10px 20px; background: #1e1e2e; color: #f9e2af; font-size: 13px; border-top: 1px solid #45475a; }
+  .url .method { font-weight: bold; color: #fab387; }
+</style>
+</head>
+<body>
+<h2>Task 11: Search by ISBN - Using Promises</h2>
+
+<div class="section">
+  <div class="section-header">Node.js Code (client.js)</div>
+  <div class="code"><pre>function <span style="color:#cba6f7">searchByISBN</span>(<span style="color:#f9e2af">isbn</span>) {
+  <span style="color:#9399b2">// Using Promises with Axios</span>
+  <span style="color:#cba6f7">return</span> <span style="color:#89b4fa">axios</span>
+    .<span style="color:#cba6f7">get</span>(<span style="color:#a6e3a1">BASE_URL</span> + <span style="color:#a6e3a1">"/isbn/"</span> + <span style="color:#f9e2af">isbn</span>)
+    .<span style="color:#cba6f7">then</span>((<span style="color:#f9e2af">response</span>) => <span style="color:#f9e2af">response</span>.<span style="color:#a6e3a1">data</span>);
+}
+
+<span style="color:#9399b2">// Call the function</span>
+<span style="color:#89b4fa">searchByISBN</span>(<span style="color:#a6e3a1">3</span>)
+  .<span style="color:#cba6f7">then</span>(<span style="color:#f9e2af">data</span> => <span style="color:#89b4fa">console</span>.<span style="color:#a6e3a1">log</span>(<span style="color:#f9e2af">data</span>))
+  .<span style="color:#cba6f7">catch</span>(<span style="color:#f9e2af">err</span> => <span style="color:#89b4fa">console</span>.<span style="color:#a6e3a1">error</span>(<span style="color:#f9e2af">err</span>));</pre></div>
+</div>
+
+<div class="section">
+  <div class="section-header">API Request</div>
+  <div class="url"><span class="method">GET</span> http://localhost:5000/isbn/3</div>
+  <div class="section-header" style="background:#1e1e2e; color:#f5c2e7; border-top:1px solid #45475a">Response</div>
+  <div class="response"><pre>{
+  "<span class="key">author</span>": "<span class="string">Dante Alighieri</span>",
+  "<span class="key">title</span>": "<span class="string">The Divine Comedy</span>",
+  "<span class="key">reviews</span>": {}
+}</pre></div>
+</div>
+</body>
+</html>
